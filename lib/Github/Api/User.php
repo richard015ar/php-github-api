@@ -234,4 +234,12 @@ class User extends AbstractApi
     {
         return $this->get('/users/'.rawurlencode($username).'/events/public');
     }
+
+    public function events($username, $page = 1, $perPage = 30)
+    {
+        return $this->get('/users/'.rawurlencode($username).'/events', [
+            'page' => $page,
+            'per_page' => $perPage,
+        ]);
+    }
 }
